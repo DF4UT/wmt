@@ -1,5 +1,5 @@
 # RHEL8 DVD媒体挂载本地yum源仓库
-
+---
 - 1.进入RHEL8设置DVD连接RHEL8.ISO媒体:
 ![cnt.png](/IMG/cnt.png)
 - 2.编辑仓库文件(dvd.repo):

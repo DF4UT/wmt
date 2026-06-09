@@ -1,5 +1,5 @@
 # RHEL8 FTP 匿名传输服务器搭建
-
+---
 ### 准备工作:
 - 配置本地仓库，[dvd.repo](RHEL8-DVD-Media-Repo-Mount)，下载vsftpd并启动服务
 - 创建目标目录(/var/ftp/pub)和测试文件(test)
