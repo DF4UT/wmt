@@ -1,10 +1,10 @@
 # Apache HTTP 基础服务器搭建
 ---
-## 准备工作：
+### 准备工作：
 - 本地yum源仓库配置
 - 安装httpd并启动
 - 配置SELinux以及防火墙
-## 项目实施：
+### 项目实施：
 - yum源仓库配置请看 [dvd.repo](RHEL8-DVD-Media-Repo-Mount)  
 - 安装httpd并启动
 ```bash title:bash
@@ -25,8 +25,8 @@ systemctl restart httpd
 - 结果为初始apache页面
 ![apache1](/IMG/apache1.png)
 ---
-### 以下为进阶型应用
-## 修改根目录
+#### 以下为进阶型应用
+### 修改根目录
 - 打开主配置文件httpd.conf(/etc/httpd/conf/httpd.conf)
 ```bash title:bash
 vim /etc/httpd/conf/httpd.conf

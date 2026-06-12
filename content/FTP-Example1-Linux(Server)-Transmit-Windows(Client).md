@@ -25,7 +25,7 @@ setenforce 0
 firewall-cmd --permanent --add-service=ftp
 systemctl restart vsftpd
 ```
-### 2.项目实施
+### 项目实施
 - 将目标目录(/var/ftp/pub)属主改为匿名用户ftp并为其他用户赋予写权限
 ```bash title:bash
 chown ftp:ftp /var/ftp/pub
@@ -35,7 +35,7 @@ chmod o+w /var/ftp/pub
 ```bash title:bash
 systemctl restart vsftpd
 ```
-### 3.客户机(windows)端操作
+### 客户机(Windows)端操作
 - 打开资源管理器(win+e)
 - 在搜索框中输入ftp://\<linux ip\>
 - linux ip 可通过ifconfig命令获取

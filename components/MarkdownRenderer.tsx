@@ -40,7 +40,8 @@ export default function MarkdownRenderer({ content }: { content: string }) {
               if (typeof node === 'number') return String(node);
               if (Array.isArray(node)) return node.map(extractText).join('');
               if (node && typeof node === 'object' && 'props' in node) {
-                return extractText((node as any).props?.children);
+                const props = (node as { props?: { children?: React.ReactNode } }).props;
+                return extractText(props?.children);
               }
               return '';
             };
@@ -102,7 +103,7 @@ export default function MarkdownRenderer({ content }: { content: string }) {
             }
             
             return (
-              <div className="relative w-full h-auto my-6">
+              <span className="relative w-full h-auto my-6">
                 <Image 
                   src={imageSrc} 
                   alt={alt || ''} 
@@ -110,7 +111,7 @@ export default function MarkdownRenderer({ content }: { content: string }) {
                   height={400}
                   className={`rounded-lg shadow-lg ${className || ''}`}
                 />
-              </div>
+              </span>
             );
           },
           // 自定义链接组件 - 文件下载

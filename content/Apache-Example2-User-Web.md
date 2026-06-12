@@ -1,12 +1,12 @@
 # Apache 用户主页配置
 ---
-## 准备工作：
+### 准备工作：
 - 本地yum源仓库配置
 - 安装httpd并启动
 - 配置SELinux以及防火墙
 - 创建用户并完善目录
 - 配置userdir.conf
-## 项目实施
+### 项目实施
  yum源仓库配置请看 [dvd.repo](RHEL8-DVD-Media-Repo-Mount)
 - 安装httpd并启动
 ```bash title:bash

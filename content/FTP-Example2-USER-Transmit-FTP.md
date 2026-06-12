@@ -78,7 +78,7 @@ dnf install ftp -y
 ```
 - 使用FTP客户端连接FTP服务器
 ```bash title:bash
-ftp <server ip>
+ftp \<server ip\>
 #接下去输入服务端中添加的用户和密码即可 若失败请检查服务端的配置或者网络
 ```
 

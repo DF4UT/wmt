@@ -1,10 +1,10 @@
 # Apache 虚拟目录配置
 ---
-## 准备工作
+### 准备工作
 - 参考案例[Apache1](Apache-Example1-Http-Server-Build)，[Apache2](Apache-Example2-User-Web)的前3步
 - 添加virdir.conf并配置
 - 完善目录和文件
-## 项目实施
+### 项目实施
 - 添加virdir.conf并配置
 ```bash title:bash
 vim /etc/httpd/conf.d/virdir.conf

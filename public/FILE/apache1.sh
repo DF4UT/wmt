@@ -1,16 +1,19 @@
 dnf install -y httpd
 systemctl start httpd
 systemctl enable httpd
-
+echo "Apache已启动并永久启用"
 setenforce 0
+echo "SELinux已设置为Permissive模式"
 firewall-cmd --permanent --add-service=http
 firewall-cmd --permanent --add-port=80/tcp
 firewall-cmd --reload
+echo "防火墙已永久允许HTTP服务和80端口"
 
 mkdir -p /home/www
 echo "new page" > /home/www/newind.html
+echo "目录/home/www已创建，文件newind.html已创建"
 
-echo "ServerRoot "/etc/httpd"
+echo "ServerRoot '/etc/httpd'
 
 Listen 80
 
@@ -29,14 +32,14 @@ ServerAdmin root@localhost
 </Directory>
 
 
-DocumentRoot "/home/www"
+DocumentRoot '/home/www'
 
-<Directory "/home/www">
+<Directory '/home/www'>
     AllowOverride None
     Require all granted
 </Directory>
 
-<Directory "/var/www/html">
+<Directory '/var/www/html'>
     Options Indexes FollowSymLinks
 
     AllowOverride None
@@ -48,11 +51,11 @@ DocumentRoot "/home/www"
     DirectoryIndex index.html newind.html
 </IfModule>
 
-<Files ".ht*">
+<Files 'ht*'>
     Require all denied
 </Files>
 
-ErrorLog "logs/error_log"
+ErrorLog '/logs/error_log'
 
 LogLevel warn
 
@@ -65,17 +68,17 @@ LogLevel warn
     </IfModule>
 
 
-    CustomLog "logs/access_log" combined
+    CustomLog '/logs/access_log' combined
 </IfModule>
 
 <IfModule alias_module>
 
 
-    ScriptAlias /cgi-bin/ "/var/www/cgi-bin/"
+    ScriptAlias /cgi-bin/ '/var/www/cgi-bin/'
 
 </IfModule>
 
-<Directory "/var/www/cgi-bin">
+<Directory '/var/www/cgi-bin'>
     AllowOverride None
     Options None
     Require all granted
@@ -102,7 +105,9 @@ AddDefaultCharset UTF-8
 
 EnableSendfile on
 
-IncludeOptional conf.d/*.conf"
+IncludeOptional conf.d/*.conf" > /etc/httpd/conf/httpd.conf
+echo "httpd.conf已配置完成，DocumentRoot已修改为/home/www，索引文件已添加newind.html，访问路径为http://127.0.0.1/"
 
 systemctl restart httpd
+echo "Apache已重启"
 curl 127.0.0.1
