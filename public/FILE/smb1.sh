@@ -1,12 +1,6 @@
 dnf install samba -y
 systemctl start smb
 echo "Samba已启动"
-firewall-cmd --permanent --add-service=samba
-firewall-cmd --reload
-echo "防火墙已永久允许Samba服务"
-
-setenforce 0
-echo "SELinux已设置为Permissive模式"
 
 echo "[share]
 	comment = share dir 
@@ -23,6 +17,13 @@ chmod 777 /share -R
 chown nobody:nobody /share -R
 echo "共享目录/share已创建
 权限为777，所有者为nobody"
+
+firewall-cmd --permanent --add-service=samba
+firewall-cmd --reload
+echo "防火墙已永久允许Samba服务"
+
+setenforce 0
+echo "SELinux已设置为Permissive模式"
 
 systemctl restart smb
 echo "Samba已重启"

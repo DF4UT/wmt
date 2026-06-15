@@ -3,9 +3,9 @@
 ### 准备工作：
 - 本地yum源仓库配置
 - 安装httpd并启动
-- 配置SELinux以及防火墙
 - 创建用户并完善目录
 - 配置userdir.conf
+- 配置SELinux以及防火墙
 ### 项目实施
  yum源仓库配置请看 [dvd.repo](RHEL8-DVD-Media-Repo-Mount)
 - 安装httpd并启动
@@ -13,13 +13,7 @@
 dnf install httpd -y
 systemctl start httpd
 ```
-- 配置SELinux和防火墙
-```bash title:bash
-setenforce 0
-firewall-cmd --add-service=http
-#如果无法访问请打开80端口
-firewall-cmd --add-port=80/tcp
-```
+
 - 创建用户目录
 ```bash title:bash
 useradd apauser1
@@ -48,6 +42,13 @@ vim /etc/httpd/conf.d/userdir.conf
 # UserDir disabled
 #26 将UserDir public_html的注释删除
 UserDir public_html
+```
+- 配置SELinux和防火墙
+```bash title:bash
+setenforce 0
+firewall-cmd --add-service=http
+#如果无法访问请打开80端口
+firewall-cmd --add-port=80/tcp
 ```
 重启服务
 ```bash title:bash

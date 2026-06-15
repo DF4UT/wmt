@@ -35,7 +35,7 @@ allow_writeable_chroot=YES
 - 添加用户并配置用户配置文件
 添加用户(可多用户添加，当前仅用两个用户作示例)：
 ```bash title:bash
-useradd ftpuser #FTPy用户
+useradd ftpuser #FTP用户
 useradd reguser #普通对比用户
 passwd ftpuser #输入密码并确认即可
 passwd reguser
@@ -78,9 +78,9 @@ dnf install ftp -y
 ```
 - 使用FTP客户端连接FTP服务器
 ```bash title:bash
-ftp \<server ip\>
+ftp <server ip>
 #接下去输入服务端中添加的用户和密码即可 若失败请检查服务端的配置或者网络
 ```
 
 ### 附件
-[服务端自动配置脚本](/public/FILE/server-vsftpd-conf.sh)
+[服务端自动配置脚本](/public/FILE/ftp2.sh)

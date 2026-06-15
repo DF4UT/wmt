@@ -2,13 +2,6 @@ dnf install samba -y
 systemctl start smb
 echo "Samba已启动"
 
-firewall-cmd --permanent --add-service=samba
-firewall-cmd --reload
-echo "防火墙已永久允许Samba服务"
-
-setenforce 0
-echo "SELinux已设置为Permissive模式"
-
 echo "[manager]
 	comment = manager
 	hosts allow = *
@@ -72,6 +65,13 @@ touch /opt/manager/pub/hellosmb
 touch /opt/tech/pub/hellosmb
 echo "用户组共享目录/opt/manager/pub和/opt/tech/pub已创建
 hellosmb文件已创建"
+
+firewall-cmd --permanent --add-service=samba
+firewall-cmd --reload
+echo "防火墙已永久允许Samba服务"
+
+setenforce 0
+echo "SELinux已设置为Permissive模式"
 
 systemctl restart smb
 echo "Samba已重启"

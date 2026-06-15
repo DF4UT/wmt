@@ -2,12 +2,7 @@ dnf install -y httpd
 systemctl start httpd
 systemctl enable httpd
 echo "Apache已启动并永久启用"
-setenforce 0
-echo "SELinux已设置为Permissive模式"
-firewall-cmd --permanent --add-service=http
-firewall-cmd --permanent --add-port=80/tcp
-firewall-cmd --reload
-echo "防火墙已永久允许HTTP服务和80端口"
+
 
 mkdir -p /home/www
 echo "new page" > /home/www/newind.html
@@ -107,6 +102,13 @@ EnableSendfile on
 
 IncludeOptional conf.d/*.conf" > /etc/httpd/conf/httpd.conf
 echo "httpd.conf已配置完成，DocumentRoot已修改为/home/www，索引文件已添加newind.html，访问路径为http://127.0.0.1/"
+
+setenforce 0
+echo "SELinux已设置为Permissive模式"
+firewall-cmd --permanent --add-service=http
+firewall-cmd --permanent --add-port=80/tcp
+firewall-cmd --reload
+echo "防火墙已永久允许HTTP服务和80端口"
 
 systemctl restart httpd
 echo "Apache已重启"

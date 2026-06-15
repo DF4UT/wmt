@@ -5,7 +5,7 @@ echo "用户ftpuser已删除"
 
 useradd ftpuser
 echo "ftp\nftp\n\n" | passwd ftpuser
-echo "用户ftpuser已创建"
+echo "用户ftpuser已创建 密码为ftp"
 
 echo "ftpuser" > /etc/vsftpd/chroot_list
 echo "用户ftpuser已添加到chroot_list中"
