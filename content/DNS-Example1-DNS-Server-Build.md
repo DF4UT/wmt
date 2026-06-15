@@ -1,4 +1,5 @@
 # DNS 主服务器搭建
+---
 ### 准备工作
 - 安装bind和bind-chroot
 - 编辑主配置文件named.conf

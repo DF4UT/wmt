@@ -1,4 +1,5 @@
 # DHCP 服务器搭建
+---
 ### 准备工作
 - 安装dhcp-server
 - 配置dhcpd.conf

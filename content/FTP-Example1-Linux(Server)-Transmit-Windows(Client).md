@@ -1,4 +1,5 @@
 # RHEL8 FTP 匿名传输服务器搭建
+---
 ## 服务端(Linux)
 ### 准备工作:
 - 配置本地仓库，[dvd.repo](RHEL8-DVD-Media-Repo-Mount)，下载vsftpd并启动服务
